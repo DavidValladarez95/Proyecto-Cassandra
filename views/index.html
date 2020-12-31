@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+<div style="width:1000;">
+    <div style="width:200px; float:left;">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Nombres</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>ID</b> </td>
+                    <td><b>NOMBRE</b></td>
+                </tr>
+                <% names.forEach(function(name){ %>
+                <tr>
+                    <td> <%= name.id %> </td>
+                    <td> <%= name.name %> </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <div style="width:700px; float:right;" >
+        <form class="needs-validation" method="post" action="/person/add">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip01">Ingrese el ID:</label>
+                    <input name = "person_id" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="1" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip02">Ingrese el Nombre:</label>
+                    <input name = "person_name" type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Paco" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+    <div style="width:700px; float:right;" >
+        <form class="needs-validation" method="post" action="/person/delete">
+            <div class="form-row">
+                <div class="col-md-4 mb-3"><h5>Eliminar Persona</h5></div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip01">Ingrese el id de la persona:</label>
+                    <input name = "delete_person_id" type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="1" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Eliminar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+
+
+</html>
